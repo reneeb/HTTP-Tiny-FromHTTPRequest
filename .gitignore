@@ -1,0 +1,4 @@
+.build/
+HTTP-Tiny-FromHTTPRequest-*
+*.sw*
+
