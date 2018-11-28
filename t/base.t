@@ -23,4 +23,21 @@ REQUEST
     is $url,  'http://perl-services.de';
 }
 
+{
+    my ($obj, $type, $url, $data) = $ua->request( 'get', 'http://perl-services.de' );
+
+    is $type, 'get';
+    is $url,  'http://perl-services.de';
+    is $data, undef;
+}
+
+{
+    my $options = { headers => { 'Accept-Charset' => 'utf-8' } };
+    my ($obj, $type, $url, $data) = $ua->request( 'get', 'http://perl-services.de', $options  );
+
+    is $type, 'get';
+    is $url,  'http://perl-services.de';
+    is_deeply $data, $options;
+}
+
 done_testing();
