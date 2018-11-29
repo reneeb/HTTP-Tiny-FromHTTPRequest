@@ -11,7 +11,7 @@ use Carp;
 use Scalar::Util qw(blessed);
 use HTTP::Request;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub request {
     my ($self, @params) = @_;
@@ -60,6 +60,7 @@ sub request {
 
     use v5.10;
     use HTTP::Tiny::FromHTTPRequest;
+    use HTTP::Request;
   
     my $http = HTTP::Tiny::FromHTTPRequest->new;
   
@@ -77,12 +78,12 @@ sub request {
     This is a test
     --go7DX--
     ~;
-
+    
     my $response_from_object = $http->request( HTTP::Request->parse( $plain_request ) );
     if ( $response_from_object->{success} ) {
         say "Successful request from HTTP::Request object";
     }
-
+    
     my $response_from_plain  = $http->request( $plain_request );
     if ( $response_from_plain->{success} ) {
         say "Successful request from plain HTTP request";

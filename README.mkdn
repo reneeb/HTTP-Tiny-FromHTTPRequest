@@ -8,13 +8,12 @@ HTTP::Tiny::FromHTTPRequest - Perform a request based on a plain HTTP request or
 
 # VERSION
 
-version 0.01
+version 0.02
 
 # SYNOPSIS
 
       use v5.10;
       use HTTP::Tiny::FromHTTPRequest;
-      use HTTP::Request;
     
       my $http = HTTP::Tiny::FromHTTPRequest->new;
     
@@ -38,7 +37,7 @@ version 0.01
           say "Successful request from HTTP::Request object";
       }
 
-      my $response_from_plain  = $http->
+      my $response_from_plain  = $http->request( $plain_request );
       if ( $response_from_plain->{success} ) {
           say "Successful request from plain HTTP request";
       }
