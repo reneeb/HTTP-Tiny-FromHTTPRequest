@@ -60,7 +60,6 @@ sub request {
 
     use v5.10;
     use HTTP::Tiny::FromHTTPRequest;
-    use HTTP::Request;
   
     my $http = HTTP::Tiny::FromHTTPRequest->new;
   
@@ -84,7 +83,7 @@ sub request {
         say "Successful request from HTTP::Request object";
     }
 
-    my $response_from_plain  = $http->
+    my $response_from_plain  = $http->request( $plain_request );
     if ( $response_from_plain->{success} ) {
         say "Successful request from plain HTTP request";
     }
